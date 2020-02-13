@@ -1,0 +1,32 @@
+[project]
+scalaVersion = "2.13.1"
+scalaJsVersion = "0.6.28"
+testFrameworks = ["minitest.runner.Framework"]
+
+[module.example]
+root = "shared"
+sources = ["shared/src"]
+targets = [
+  "jvm",
+  "js"
+]
+
+[module.example.test]
+sources = ["shared/test"]
+
+[module.example.js]
+root = "js"
+scalaVersion = "2.13.0-RC1"
+sources = ["js/src"]
+
+[module.example.test.js]
+sources = ["js/test"]
+scalaDeps = [["io.monix", "minitest", "2.4.0"]]
+
+[module.example.jvm]
+root = "jvm"
+sources = ["jvm/src"]
+
+[module.example.test.jvm]
+sources = ["jvm/test"]
+scalaDeps = [["io.monix", "minitest", "2.7.0"]]
